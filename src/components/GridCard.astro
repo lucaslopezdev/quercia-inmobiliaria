@@ -1,0 +1,22 @@
+---
+import PropertyCard from "./PropertyCard.astro"
+import SectionContainer from "./SectionContainer.astro"
+import type { Property } from "src/models/Property.model"
+
+interface Props {
+  items: Property[]
+};
+
+const { items } = Astro.props
+
+---
+
+<SectionContainer>
+  <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3">
+    {items.map((item) => (
+      <li>
+        <PropertyCard item={item} />
+      </li>
+    ))}
+  </ul>
+</SectionContainer>

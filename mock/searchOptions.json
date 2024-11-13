@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "type": "Casa"
+  },
+  {
+    "id": 1,
+    "type": "Departamento"
+  },
+  {
+    "id": 2,
+    "type": "PH"
+  },
+  {
+    "id": 3,
+    "type": "Quinta"
+  },
+  {
+    "id": 4,
+    "type": "Garage"
+  },
+  {
+    "id": 5,
+    "type": "Oficina comercial"
+  },
+  {
+    "id": 6,
+    "type": "Local comercial"
+  },
+  {
+    "id": 7,
+    "type": "Bodega / Galpón"
+  },
+  {
+    "id": 8,
+    "type": "Depósito"
+  },
+  {
+    "id": 9,
+    "type": "Campo"
+  },
+  {
+    "id": 10,
+    "type": "Terreno / Lote"
+  },
+  {
+    "id": 11,
+    "type": "Todos"
+  }
+]

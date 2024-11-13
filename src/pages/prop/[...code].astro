@@ -1,0 +1,28 @@
+---
+import properties from '@mock/properties.json'
+import Layout from '@layouts/Layout.astro';
+import Gallery from '@components/Gallery'
+import 'photoswipe/style.css';
+
+export async function getStaticPaths() {
+  return properties.map(({ code, summary, description }) => {
+    return {
+      params: { code },
+      props: { summary, description },
+    };
+  });
+}
+
+const heroImages = properties.find(prop => prop.code === Astro.params.code)?.images ?? []
+
+const { summary, description } = Astro.props;
+---
+
+<Layout
+  title={summary}
+  description={description}
+>
+  <h1>{summary}</h1>
+  <p>{description}</p>
+  <Gallery images={heroImages} client:load />
+</Layout>

@@ -1,0 +1,43 @@
+---
+import CoveredSurface from '@icons/CoveredSurface.astro'
+import Rooms from '@icons/Rooms.astro'
+import Bathrooms from '@icons/Bathrooms.astro'
+import TotalSurface from '@icons/TotalSurface.astro'
+import ContactButtons from '@components/ContactButtons.astro'
+import type { Property } from 'src/models/Property.model'
+interface Props {
+  item: Property
+}
+
+const { item } = Astro.props
+---
+
+<section class="min-h-96 md:min-h-max md:h-60 flex flex-col md:flex-row rounded-lg overflow-hidden border border-[#cbd6dc]">
+  <img src={item.image} alt={item.summary} class="object-cover h-48 md:min-w-72 md:w-72 md:h-auto" >
+  <div class="flex flex-col md:justify-between size-full gap-1 p-3 overflow-hidden">
+    <h3 class="font-bold text-xl">{item.symbol} {item.value}</h3>
+    <span>{ item.expenses ? `${item.expenses} expenses` : ''}</span>
+    <h4 class="font-bold text-sm">{item.address}</h4>
+    <p class="text-sm">{item.location}</p>
+    <div class="flex gap-2 flex-wrap">
+      <div class="flex gap-1">
+        <TotalSurface size='20' />
+        <p class="text-xs">{item.total_surface} m² totales</p>
+      </div>
+      <div class="flex gap-1">
+        <CoveredSurface size='20' />
+        <p class="text-xs">{item.covered_surface} m² cubiertos</p>
+      </div>
+      <div class="flex gap-1">
+        <Rooms size='20' />
+        <p class="text-xs">{item.spaces} ambientes</p>
+      </div>
+      <div class="flex gap-1">
+        <Bathrooms size='20' />
+        <p class="text-xs">{item.bathrooms} {item.bathrooms > 1 ? 'baños' : 'baño'}</p>
+      </div>
+    </div>
+    <p class="truncate text-xs w-full">{item.summary}</p>
+    <ContactButtons code={item.code} />
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+import Footer from '@components/Footer.astro'
+import Header from '@components/Header.astro'
+
+interface Props {
+	title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+		<style is:global>
+
+::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+        backdrop-filter: blur(10px);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+			
+			#header-nav {
+        animation: blur linear both;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+
+			@keyframes blur {
+        to {
+          box-shadow:
+            0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+            0px 0px 0 1px rgba(0, 0, 0, 0.3);
+          background: rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(10px);
+					color: white;
+        }
+      }
+		</style>
+	</body>
+</html>

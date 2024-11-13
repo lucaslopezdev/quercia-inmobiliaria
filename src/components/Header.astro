@@ -1,0 +1,25 @@
+---
+import MenuMobile from "@icons/MenuMobile.astro"
+
+
+---
+
+<header id="header-nav" class=" py-2 mx-auto sticky top-0 w-full z-50">
+  <div class="flex items-center justify-between max-w-7xl container">
+    <a href="/">
+      <img src="/logo-quercia.png" alt="Logo de Quercia Inmobiliaria" class="h-10">
+    </a>
+    <nav class="gap-5 hidden md:flex">
+      <a href="/buy">Comprar</a>
+      <a href="/rent">Alquilar</a>
+      <a href="/sell">Vender</a>
+      <a href="/about">Sobre nosotros</a>
+    </nav>
+    <button class="border rounded-lg px-4 py-2 hidden md:block">
+      <a href="/contact">Contactanos</a>
+    </button>
+    <button class="block md:hidden">
+      <MenuMobile size=28 />
+    </button>
+  </div>
+</header>
